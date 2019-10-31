@@ -31,7 +31,7 @@ class Student
       self.new_from_db(row)
     end
   end
-  def self.count_all_students_in_grade_9
+  def self.all_students_in_grade_9
     sql = <<-SQL
     SELECT COUNT(*)
     FROM students
