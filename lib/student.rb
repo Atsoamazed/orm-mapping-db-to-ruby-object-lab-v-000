@@ -2,7 +2,15 @@ class Student
   attr_accessor :id, :name, :grade
 
   def self.new_from_db(row)
-    
+    sql = <<-SQL
+    CREATE TABLE IF NOT EXISTS students (
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      grade TEXT
+    )
+    SQL
+
+    DB[:conn].execute(sql)
   end
 
   def self.all
